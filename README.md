@@ -15,4 +15,4 @@ A simple and modern QR code generator built with Flask, TailwindCSS and Python.
 - TailwindCSS
 
 ## Preview
-
+https://qr-generator-mpgd.onrender.com
