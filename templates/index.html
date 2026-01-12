@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generador QR</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="gradient-bg min-h-screen flex items-center justify-center p-4">
+
+  <div class="glass-effect p-6 sm:p-8 md:p-10 rounded-2xl w-full max-w-md shadow-2xl">
+    
+    <!-- Header -->
+    <div class="text-center mb-8">
+      <div class="inline-block p-4 rounded-full glass-effect mb-4">
+        <svg class="w-12 h-12 text-[#FFFBD5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"></path>
+        </svg>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-bold text-[#FFFBD5] mb-2">Generador QR</h1>
+      <p class="text-gray-400 text-sm font-light">Crea códigos QR en segundos</p>
+    </div>
+
+    <!-- Form -->
+    <form method="POST" class="space-y-5">
+      <div class="relative">
+        <input 
+          type="text" 
+          name="url" 
+          placeholder="Ingresa tu URL o texto..."
+          required
+          class="w-full p-4 rounded-xl bg-black/30 text-white placeholder-gray-500 border border-white/10 focus:outline-none focus:border-[#FFFBD5] transition-all duration-300"
+        >
+      </div>
+
+      <button 
+        type="submit"
+        class="w-full btn-primary p-4 rounded-xl font-semibold text-white shadow-lg">
+        Generar Código QR
+      </button>
+    </form>
+
+    <!-- QR Result -->
+    {% if qr_image %}
+      <div class="mt-8 fade-in">
+        <div class="qr-container">
+          <img 
+            src="{{ url_for('static', filename=qr_image) }}" 
+            alt="Código QR generado"
+            class="w-full h-auto rounded-lg"
+          >
+        </div>
+        
+        <a 
+          href="/static/qr.png" 
+          download
+          class="block w-full mt-5 btn-secondary p-4 rounded-xl font-semibold text-center shadow-lg">
+          Descargar QR
+        </a>
+      </div>
+    {% endif %}
+
+    <!-- Footer -->
+    <div class="mt-8 text-center">
+      <p class="text-gray-500 text-xs font-light">
+        @antonioferlez
+      </p>
+    </div>
+
+  </div>
+
+</body>
+</html>

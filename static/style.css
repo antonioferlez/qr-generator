@@ -1,0 +1,61 @@
+* {
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    .gradient-bg {
+      background: #000000;
+    }
+    
+    .glass-effect {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .qr-container {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 20px 60px rgba(61, 151, 188, 0.3);
+    }
+    
+    .btn-primary {
+      background: #3D97BC;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(61, 151, 188, 0.4);
+    }
+    
+    .btn-secondary {
+      background: #FFFBD5;
+      color: #000000;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(255, 251, 213, 0.4);
+    }
+    
+    input:focus {
+      border-color: #FFFBD5;
+      box-shadow: 0 0 0 3px rgba(255, 251, 213, 0.1);
+    }
+    
+    .fade-in {
+      animation: fadeIn 0.5s ease-in;
+    }
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
